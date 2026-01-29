@@ -233,6 +233,22 @@ const toggleTaskComplete = async (index) => {
   loadTasks();
 };
 
+const editTask = async (index) => {
+  const task = tasks[index];
+
+  const newText = prompt("Taskni tahrirlash:", task.text);
+  if (!newText || newText.trim() === task.text) return;
+
+  console.log("EDIT TASK:", task.id, newText);
+
+  await updateTaskAPI(task.id, {
+    text: newText.trim(),
+    completed: task.completed,
+  });
+
+  loadTasks();
+};
+
 const deleteTask = async (index) => {
   const task = tasks[index];
   await deleteTaskAPI(task.id);
@@ -265,6 +281,7 @@ const updateTasksList = () => {
           <p>${task.text}</p>
         </div>
         <div class="icons">
+          <button onclick="editTask(${index})">✏️</button>
           <button onclick="deleteTask(${index})">🗑</button>
         </div>
       </div>
