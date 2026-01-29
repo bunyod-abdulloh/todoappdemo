@@ -277,12 +277,12 @@ const updateTasksList = () => {
     li.innerHTML = `
       <div class="taskItem">
         <div class="task ${task.completed ? "completed" : ""}">
-          <input type="checkbox" ${task.completed ? "checked" : ""}/>
+          <input type="checkbox" ${task.completed ? "checked" : ""}>
           <p>${task.text}</p>
         </div>
         <div class="icons">
-          <button onclick="editTask(${index})">✏️</button>
-          <button onclick="deleteTask(${index})">🗑</button>
+          <button class="edit-btn" onclick="editTask(${index})">✏</button>
+          <button class="delete-btn" onclick="deleteTask(${index})">🗑</button>
         </div>
       </div>
     `;
