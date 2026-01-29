@@ -124,10 +124,18 @@ USE_TZ = True
 
 import os
 
+# Static files
+
 STATIC_URL = "/static/"
+
+# collectstatic hamma fayllarni shu yerga yig‘adi
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# Development paytida static fayllar shu papkadan olinadi
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    BASE_DIR / "static",
 ]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
